@@ -1,4 +1,5 @@
 const Btn = document.getElementById("btn");
+const card = document.getElementById("cardy");
 Btn.addEventListener("click", getNews);
 let stories = [];
 
@@ -7,26 +8,27 @@ function getNews(e) {
     fetch(URL, {
         method: "GET",
         headers: {
-            'Authorization': API KEY
+            'Authorization': '477f3f4a86e2451198ba71e20dc9db29'
         }
     })
     .then(response => response.json())
-    .then((data) => {
-        console.log(data.articles[0]);
-        document.getElementById('card').innerHTML = `
-            <div class="card-body">
-                <h5 class="card-title" id="newsTitle">${data.articles[0].title}</h5>
-                <p class="card-text" id="newsSyn">${data.articles[0].description}</p>
-                <a href="${data.articles[0].url}" class="btn btn-primary">Read More</a>
+    .then(response => {
+        let res = response.articles;
+        // console.log(res);
+        res.forEach(story => {
+            console.log(story);
+            card.innerHTML += `
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title" id="newsTitle">${story.title}</h5>
+                    <p class="card-text" id="newsSyn">${story.description}</p>
+                    <a href="{article.url}" class="btn btn-primary">Read More</a>
+                </div>
             </div>
-        `
-    })
+            `;
+        });
+    });
 }
-
-
-
-
-
 // function getID() {
 //     fetch("newsapk.json")
 //     .then(response => response.json())
