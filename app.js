@@ -12,7 +12,7 @@ function getCyberNews(e) {
     fetch(URL, {
         method: "GET",
         headers: {
-            'Authorization': '477f3f4a86e2451198ba71e20dc9db29'
+            'Authorization': API_KEY
         }
     })
     .then(response => response.json())
