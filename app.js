@@ -1,45 +1,42 @@
-const Btn = document.getElementById("btn");
-const card = document.getElementById("cardy");
-Btn.addEventListener("click", getAllNew);
+const card = document.getElementById("container");
+const cyberBtn = document.getElementById("cyberLink");
+const warBtn = document.getElementById("warLink");
 
-function getAllNew(){
-    getWarNews();
-    getCyberNews();
-}
+cyberBtn.addEventListener("click", getCyberNews);
+warBtn.addEventListener("click", getWarNews);
 
 function getCyberNews(e) {
+    card.innerHTML = "";
     let URL = "https://newsapi.org/v2/everything?q=cyber(ransomware AND crypto)"
     fetch(URL, {
         method: "GET",
         headers: {
-            'Authorization': API_KEY
+            'Authorization': 'APIKEY'
         }
     })
     .then(response => response.json())
     .then(response => {
         let res = response.articles;
-        console.log(res);
         res.forEach(story => {
-            // console.log(story);
             card.innerHTML += `
-            <div class="card col-sm" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title" id="newsTitle">${story.title}</h5>
-                    <p class="card-text" id="newsSyn">${story.description}</p>
-                    <a href="${story.url}" class="btn btn-primary">Read More</a>
+                <div id="card">
+                    <h2>${story.title}</h2>
+                    <p>${story.description}</p>
+                    <a href="#" id="btn-link">${story.url}</a>
+                    </div>
                 </div>
-            </div>
             `;
         });
     });
 }
 
 function getWarNews(e) {
+    card.innerHTML = "";
     let URL = "https://newsapi.org/v2/everything?q=war"
     fetch(URL, {
         method: "GET",
         headers: {
-            'Authorization': API_KEY'
+            'Authorization': APIKEY
         }
     })
     .then(response => response.json())
@@ -49,13 +46,12 @@ function getWarNews(e) {
         res.forEach(story => {
             // console.log(story);
             card.innerHTML += `
-            <div class="card col-sm" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title" id="newsTitle">${story.title}</h5>
-                    <p class="card-text" id="newsSyn">${story.description}</p>
-                    <a href="${story.url}" class="btn btn-primary">Read More</a>
+            <div id="card">
+                    <h2>${story.title}</h2>
+                    <p>${story.description}</p>
+                    <a href="#" id="btn-link">${story.url}</a>
+                    </div>
                 </div>
-            </div>
             `;
         });
     });
