@@ -72,7 +72,7 @@ button:hover{
     color: #000;
     text-align: center;
 }
-
+477f3f4a86e24
 @media screen and (max-width: 1080px) {
     button{
         display: none;
@@ -81,6 +81,7 @@ button:hover{
         padding: 0px 10px;
     }
 }
+51198ba71e20dc9db29
 @media screen and (max-width: 730px) {
     .nav-links {
         display: none;
