@@ -1,40 +1,58 @@
-const card = document.getElementById("container");
-const cyberBtn = document.getElementById("cyberLink");
-const warBtn = document.getElementById("warLink");
+const container = document.getElementById("container");
+const cyberBtn = document.getElementById("cyber-link");
+const warBtn = document.getElementById("war-link");
+const techBtn = document.getElementById("tech-link");
+const crytoBtn = document.getElementById("crypto-link");
+const ransomBtn = document.getElementById("ransom-link");
+const linuxBtn = document.getElementById("linux-link");
 
-warBtn.addEventListener("click", getWarNews);
-cyberBtn.addEventListener("click", getCyberNews);
+cyberBtn.addEventListener("click", newsClick);
+warBtn.addEventListener("click", newsClick);
+techBtn.addEventListener("click", newsClick);
+crytoBtn.addEventListener("click", newsClick);
+ransomBtn.addEventListener("click", newsClick);
+linuxBtn.addEventListener("click", newsClick);
 
-
-function getCyberNews(e) {
-    let URL = "https://newsapi.org/v2/everything?q=cyber(ransomware AND crypto)";
-    getNews(URL);
+function newsClick(e) {
+    if (e.target.id == "cyber-link") {
+        let URL = "https://newsapi.org/v2/everything?q=cyber NOT ransomware";
+        getNews(URL);
+    } else if (e.target.id == "war-link") {
+        let URL = "https://newsapi.org/v2/everything?q=war";
+        getNews(URL);
+    } else if (e.target.id == "tech-link") {
+        let URL = "https://newsapi.org/v2/everything?q=technology";
+        getNews(URL);
+    } else if (e.target.id == "crypto-link") {
+        let URL = "https://newsapi.org/v2/everything?q=cryptocurrency";
+        getNews(URL);
+    } else if (e.target.id == "ransom-link") {
+        let URL = "https://newsapi.org/v2/everything?q=ransomware";
+        getNews(URL);
+    } else if (e.target.id == "linux-link") {
+        let URL = "https://newsapi.org/v2/everything?q=linux";
+        getNews(URL);
+    } else
+        return;
 }
-
-function getWarNews(e) {
-    let URL = "https://newsapi.org/v2/everything?q=war";
-    getNews(URL);
-}
-
 
 function getNews(URL){
-    card.innerHTML = "";
+    container.innerHTML = "";
     fetch(URL, {
         method: "GET",
         headers: {
-            'Authorization': 'API KEY'
+            'Authorization': '477f3f4a86e2451198ba71e20dc9db29'
         }
     })
     .then(response => response.json())
     .then(response => {
-        let res = response.articles;
-        res.forEach(story => {
-            card.innerHTML += `
-                <div id="card">
-                    <h2>${story.title}</h2>
+        response.articles.forEach(story => {
+            container.innerHTML += `
+                >
+                    <h2<div id="card">
+                        <a href="${story.url}" target="_blank">${story.title}</a>
+                    </h2>
                     <p>${story.description}</p>
-                    <a href="${story.url}" id="btn-link">Read More</a>
-                    </div>
                 </div>
             `;
         });
