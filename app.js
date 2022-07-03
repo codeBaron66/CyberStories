@@ -48,8 +48,8 @@ function getNews(URL){
     .then(response => {
         response.articles.forEach(story => {
             container.innerHTML += `
-                >
-                    <h2<div id="card">
+                <div id="card">
+                    <h2>
                         <a href="${story.url}" target="_blank">${story.title}</a>
                     </h2>
                     <p>${story.description}</p>
