@@ -1,109 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600;800&display=swap');
-
 body{
-    height: 100vh;
-    width: 100vw;
-    background-color: #ececec;
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: sans-serif;
 }
-header{
-    background-image: linear-gradient(#001219, #001e2a);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 8%;
-}
-li, a, button{
-    font-family: 'Open Sans', sans-serif;
-    text-transform: uppercase;
-    font-size: 1.1em;
-    color: #f8f8f7;
+a{
     text-decoration: none;
 }
-#logo{
-    width: 180px;
-    height: 90px;
+header{
+    background-color: #141010;
+    width: 100vw;
+    position: fixed;
 }
 .nav-links{
-    transition: all 0.2s ease 0s;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0 10px;
 }
-.nav-links li{
-    display:inline-block;
-    padding: 0px 60px;
+li a{
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    color: #f8f8f7;
 }
 .nav-links li a{
     transition: all 0.2s ease 0s;
 }
 .nav-links li a:hover{
-    color: #005f73;
-}
-button{
-    padding: 9px 30px;
-    background-color: #0a9396;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.2s ease 0s;
-}
-button:hover{
-    background-color: #005f73;
+    color: #7dd87d;
 }
 #container{
     padding-top: 15vh;
-    margin-left: 250px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 85vw;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 #card{
-    width: 270px;
-    min-height: 340px;
+    min-width: 270px;
+    min-height: 140px;
     padding: 25px;
     margin-bottom: 30px;
     border-radius: 15px;
-    background: #85bfd4; 
+    background: #4c9173; 
     font-size: 1.2rem;
+    color: #fff;
 }
-#btn-link{
-    text-decoration: none;
-    background-color: #ececec;
-    padding: 10px;
-    border-radius: 10px;
+#container a{
     color: #000;
-    text-align: center;
 }
-477f3f4a86e24
-@media screen and (max-width: 1080px) {
-    button{
-        display: none;
-    }
-    .nav-links li{
-        padding: 0px 10px;
-    }
-}
-51198ba71e20dc9db29
-@media screen and (max-width: 730px) {
-    .nav-links {
-        display: none;
-    }
-    header{
-        display: block;
-        text-align: right;
-    }
-}
-/* @media screen and (max-width: 1500px) {
-    .container{
+
+@media screen and (min-width: 1100px) {
+    #container{
+        display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
-  }
-@media screen and (max-width: 1180px) {
-    .container{
-        grid-template-columns: 1fr 1fr;
-    }
-  }
-  @media screen and (max-width: 900px) {
-    .container{
-        grid-template-columns: 1fr;
-    }
-  } */
+    #card{
 
+        margin-right: 30px;
+    }
+}
